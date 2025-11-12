@@ -1,6 +1,6 @@
 
 #mainContainer {
-    -fx-background-color: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+    -fx-background-color: linear-gradient(to bottom right, #a67c52, #d9b382);
     -fx-font-family: "Segoe UI", "Roboto", sans-serif;
 }
 

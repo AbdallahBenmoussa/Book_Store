@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
@@ -24,8 +23,6 @@
             <MenuItem accelerator="Shortcut+N" text="Add New Book" />
             <MenuItem accelerator="Shortcut+B" text="Browse Catalog" />
             <MenuItem accelerator="Shortcut+F" text="Search Books" />
-            <SeparatorMenuItem />
-            <MenuItem accelerator="Shortcut+I" text="Manage Inventory" />
         </Menu>
 
         <Menu text="Customers">
@@ -34,13 +31,7 @@
         </Menu>
 
         <Menu text="Orders">
-            <MenuItem accelerator="Shortcut+O" text="New Order" />
             <MenuItem accelerator="Shortcut+H" text="Order History" />
-        </Menu>
-
-        <Menu text="Reports">
-            <MenuItem accelerator="Shortcut+R" text="Sales Report" />
-            <MenuItem accelerator="Shortcut+Shift+I" text="Inventory Report" />
         </Menu>
     </MenuBar>
 
@@ -75,10 +66,6 @@
                         <VBox alignment="CENTER" spacing="5">
                             <Label fx:id="shortcutBrowse" text="Ctrl+B" />
                             <Label fx:id="shortcutBrowseDesc" text="Browse" />
-                        </VBox>
-                        <VBox alignment="CENTER" spacing="5">
-                            <Label fx:id="shortcutOrder" text="Ctrl+O" />
-                            <Label fx:id="shortcutOrderDesc" text="New Order" />
                         </VBox>
                     </HBox>
                 </VBox>

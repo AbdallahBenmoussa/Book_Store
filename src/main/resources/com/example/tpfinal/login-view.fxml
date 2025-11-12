@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane fx:id="main_Panel" style="-fx-background-color: linear-gradient(to bottom right, #e3f2fd, #bbdefb);" stylesheets="@style/Login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tpfinal.Controller.LoginController">
+<Pane fx:id="main_Panel" stylesheets="@style/Login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tpfinal.Controller.LoginController">
 
    <children>
 

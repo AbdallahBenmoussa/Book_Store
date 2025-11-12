@@ -3,6 +3,7 @@ package com.example.tpfinal.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,6 +19,10 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class MainViewController {
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
     private Button manageBookBtn;
@@ -65,8 +70,17 @@ public class MainViewController {
     private Label welcomeLabel;
 
     @FXML
-    void browseBooks(ActionEvent event) {
+    void browseBooks(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/brows-books.fxml"));
+        root = loader.load();
 
+        BrowsBooksController BrowsBooksController = loader.getController();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Book Store - Brows Books");
+        stage.show();
     }
 
     @FXML
@@ -75,9 +89,9 @@ public class MainViewController {
     }
 
     @FXML
-    public void ajouterLivre() {
+    public void ajouterLivre() throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/add-book.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/brows-books.fxml"));
             Parent root = loader.load();
 
             Stage stage = new Stage();
