@@ -1,0 +1,18 @@
+
+#Ajt_Livre_Btn{
+    -fx-background-color:#5c3ccf;
+    -fx-text-fill: white;
+    -fx-background-radius: 200px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 900;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 0.2, 2, 2);
+}
+
+#fermer_button{
+    -fx-background-color: transparent;
+    -fx-text-fill: red;
+}
+#fermer_button:hover{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}

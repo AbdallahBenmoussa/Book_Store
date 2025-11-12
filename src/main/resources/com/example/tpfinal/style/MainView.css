@@ -59,7 +59,7 @@
     -fx-opacity: 0.8;
 }
 
-#addBookBtn, #deleteBtn , #editBookBtn , #browseBtn {
+#manageBookBtn , #browseBtn {
     -fx-background-color: transparent;
     -fx-text-fill: #667eea;
     -fx-font-weight: bold;
@@ -70,7 +70,7 @@
     -fx-border-width: 2;
     -fx-cursor: hand;
 }
-#addBookBtn:hover, #deleteBtn:hover , #editBookBtn:hover , #browseBtn:hover{
+#manageBookBtn , #browseBtn:hover{
     -fx-background-color: rgba(102,126,234,0.1);
 }
 

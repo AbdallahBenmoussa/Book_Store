@@ -2,25 +2,28 @@ package com.example.tpfinal.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
 
 public class MainViewController {
 
     @FXML
-    private Button addBookBtn;
+    private Button manageBookBtn;
 
     @FXML
     private Button browseBtn;
-
-    @FXML
-    private Button deleteBtn;
-
-    @FXML
-    private Button editBookBtn;
 
     @FXML
     private VBox mainContainer;
@@ -62,11 +65,6 @@ public class MainViewController {
     private Label welcomeLabel;
 
     @FXML
-    void addBook(ActionEvent event) {
-
-    }
-
-    @FXML
     void browseBooks(ActionEvent event) {
 
     }
@@ -74,6 +72,28 @@ public class MainViewController {
     @FXML
     void viewReports(ActionEvent event) {
 
+    }
+
+    @FXML
+    public void ajouterLivre() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/add-book.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Ajouter une demande");
+            stage.initStyle(StageStyle.UNDECORATED);
+
+            GaussianBlur blur = new GaussianBlur(10);
+            mainContainer.setEffect(blur);
+            stage.setOnHidden(e -> mainContainer.setEffect(null));
+
+            stage.show();
+        } catch (IOException ex) {
+            System.err.println("Failed to load FXML: " + ex.getMessage());
+            ex.printStackTrace();
+        }
     }
 
 }

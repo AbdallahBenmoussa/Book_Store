@@ -13,9 +13,8 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainContainer" minHeight="600.0" prefWidth="800.0" stylesheets="@style/MainView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tpfinal.Controller.MainViewController">
+<VBox fx:id="mainContainer" minHeight="800.0" prefWidth="1000.0" stylesheets="@style/MainView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tpfinal.Controller.MainViewController">
 
-    <!-- ===== MENU BAR ===== -->
     <MenuBar fx:id="menuBar">
         <effect>
             <DropShadow color="rgba(0,0,0,0.1)" offsetX="0" offsetY="2" radius="5" />
@@ -63,9 +62,7 @@
 
                 <HBox alignment="CENTER" spacing="20">
                     <Button fx:id="browseBtn" onAction="#browseBooks" text="📚 Browse Books" />
-                    <Button fx:id="addBookBtn" onAction="#addBook" text="➕ Add Book" />
-                    <Button fx:id="deleteBtn" onAction="#viewReports" text="Delete Book" />
-               <Button fx:id="editBookBtn" layoutX="372.0" layoutY="10.0" onAction="#viewReports" text="Edit Book" />
+                    <Button fx:id="manageBookBtn" text="Manage books" />
                 </HBox>
 
                 <VBox alignment="CENTER" spacing="10">
