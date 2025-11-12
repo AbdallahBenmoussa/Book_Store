@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="mainContainer" minHeight="600.0" prefWidth="800.0" stylesheets="@style/MainView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tpfinal.Controller.MainViewController">
+
+    <!-- ===== MENU BAR ===== -->
+    <MenuBar fx:id="menuBar">
+        <effect>
+            <DropShadow color="rgba(0,0,0,0.1)" offsetX="0" offsetY="2" radius="5" />
+        </effect>
+
+        <Menu text="Books">
+            <MenuItem accelerator="Shortcut+N" text="Add New Book" />
+            <MenuItem accelerator="Shortcut+B" text="Browse Catalog" />
+            <MenuItem accelerator="Shortcut+F" text="Search Books" />
+            <SeparatorMenuItem />
+            <MenuItem accelerator="Shortcut+I" text="Manage Inventory" />
+        </Menu>
+
+        <Menu text="Customers">
+            <MenuItem accelerator="Shortcut+C" text="Add Customer" />
+            <MenuItem accelerator="Shortcut+L" text="View Customers" />
+        </Menu>
+
+        <Menu text="Orders">
+            <MenuItem accelerator="Shortcut+O" text="New Order" />
+            <MenuItem accelerator="Shortcut+H" text="Order History" />
+        </Menu>
+
+        <Menu text="Reports">
+            <MenuItem accelerator="Shortcut+R" text="Sales Report" />
+            <MenuItem accelerator="Shortcut+Shift+I" text="Inventory Report" />
+        </Menu>
+    </MenuBar>
+
+    <!-- ===== WELCOME SECTION ===== -->
+    <StackPane VBox.vgrow="ALWAYS">
+        <VBox alignment="CENTER" spacing="30">
+            <VBox fx:id="welcomeCard" alignment="CENTER" maxWidth="600" spacing="20">
+
+                <ImageView fx:id="welcomeIcon" fitHeight="80" fitWidth="80" preserveRatio="true">
+                    <effect>
+                        <ColorAdjust hue="0.5" saturation="0.8" />
+                    </effect>
+                </ImageView>
+
+                <VBox alignment="CENTER" minWidth="650.0" spacing="10">
+                    <Label fx:id="welcomeLabel" text="Welcome back, Abdallah!" />
+                    <Label fx:id="subtitleLabel" text="Ready to explore today's literary treasures?" />
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="20">
+                    <Button fx:id="browseBtn" onAction="#browseBooks" text="📚 Browse Books" />
+                    <Button fx:id="addBookBtn" onAction="#addBook" text="➕ Add Book" />
+                    <Button fx:id="deleteBtn" onAction="#viewReports" text="Delete Book" />
+               <Button fx:id="editBookBtn" layoutX="372.0" layoutY="10.0" onAction="#viewReports" text="Edit Book" />
+                </HBox>
+
+                <VBox alignment="CENTER" spacing="10">
+                    <Label fx:id="quickAccessLabel" text="Quick Access" />
+                    <HBox alignment="CENTER" spacing="30">
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label fx:id="shortcutAddBook" text="Ctrl+N" />
+                            <Label fx:id="shortcutAddBookDesc" text="Add Book" />
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label fx:id="shortcutBrowse" text="Ctrl+B" />
+                            <Label fx:id="shortcutBrowseDesc" text="Browse" />
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label fx:id="shortcutOrder" text="Ctrl+O" />
+                            <Label fx:id="shortcutOrderDesc" text="New Order" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </VBox>
+    </StackPane>
+</VBox>

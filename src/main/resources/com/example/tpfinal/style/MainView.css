@@ -1,0 +1,93 @@
+
+#mainContainer {
+    -fx-background-color: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+}
+
+
+.menu-bar {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-border-width: 0 0 1 0;
+}
+.menu-bar .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.menu:hover {
+    -fx-background-color: rgba(255,255,255,0.2);
+}
+
+.context-menu {
+    -fx-background-color: lightblue;
+    -fx-border-color: #5a6be2;
+    -fx-border-width: 1px;
+}
+
+.menu-item {
+    -fx-background-color: lightblue;
+}
+
+.menu-item:hover {
+    -fx-background-color: #87ceeb;
+}
+
+.menu-item .label {
+    -fx-text-fill: #000000;
+    -fx-effect: none;
+}
+
+#welcomeCard {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-padding: 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 25, 0, 0, 5);
+}
+
+#welcomeLabel {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+#subtitleLabel {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 16px;
+}
+
+#welcomeIcon {
+    -fx-opacity: 0.8;
+}
+
+#addBookBtn, #deleteBtn , #editBookBtn , #browseBtn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #667eea;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 12 25;
+    -fx-border-color: #667eea;
+    -fx-border-radius: 25;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+}
+#addBookBtn:hover, #deleteBtn:hover , #editBookBtn:hover , #browseBtn:hover{
+    -fx-background-color: rgba(102,126,234,0.1);
+}
+
+#quickAccessLabel {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 20 0 0 0;
+}
+
+#shortcutAddBook, #shortcutBrowse, #shortcutOrder {
+    -fx-text-fill: #667eea;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+#shortcutAddBookDesc, #shortcutBrowseDesc, #shortcutOrderDesc {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 10px;
+}
