@@ -1,0 +1,40 @@
+CREATE DATABASE IF NOT EXISTS bookstore;
+USE bookstore;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS sales (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    book_id INT NOT NULL,
+    quantity_sold INT NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
+);
+
+INSERT INTO users (username, password) VALUES
+('admin', 'admin123'),
+('manager', 'manager123'),
+('yasser', 'yasser123'),
+('abdallah', 'abdallah123');
+
+
+INSERT INTO users (username, password) VALUES
+('user1', 'user123'),
+('user2', 'user123'),
+('employee1', 'emp123'),
+('employee2', 'emp123');

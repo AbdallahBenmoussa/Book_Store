@@ -10,6 +10,7 @@ module com.example.tpfinal {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens com.example.tpfinal to javafx.fxml;
     exports com.example.tpfinal;
