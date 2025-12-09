@@ -29,6 +29,11 @@
             <MenuItem accelerator="Shortcut+F" text="Disconnect" />
          </items>
       </Menu>
+      <Menu text="Record">
+         <items>
+            <MenuItem accelerator="Shortcut+F" text="Salles Record" />
+         </items>
+      </Menu>
     </MenuBar>
 
     <!-- ===== WELCOME SECTION ===== -->
