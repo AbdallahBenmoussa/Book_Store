@@ -91,7 +91,6 @@ public class AddBookController {
     }
 
     public void setBackNavigation(Parent unused) {
-        // placeholder for future transitions
     }
 
     private void clearForm() {

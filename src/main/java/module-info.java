@@ -11,8 +11,10 @@ module com.example.tpfinal {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires mysql.connector.j;
 
     opens com.example.tpfinal to javafx.fxml;
+    opens com.example.tpfinal.Model to javafx.base;
     exports com.example.tpfinal;
     exports com.example.tpfinal.Controller;
     opens com.example.tpfinal.Controller to javafx.fxml;

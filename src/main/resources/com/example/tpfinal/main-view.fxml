@@ -20,18 +20,12 @@
         </effect>
 
         <Menu text="Books">
-            <MenuItem fx:id="menuBrowse" accelerator="Shortcut+B" onAction="#browseBooks" text="Browse Catalog" />
-            <MenuItem accelerator="Shortcut+F" text="Search Books" />
+            <MenuItem fx:id="menuBrowse" accelerator="Shortcut+S" onAction="#browseBooks" text="Manage Sales" />
+            <MenuItem fx:id="menuManageBooks" accelerator="Shortcut+B" onAction="#openManageBooks" text="Manage Books" />
         </Menu>
       <Menu text="Action">
          <items>
-            <MenuItem accelerator="Shortcut+F" text="Log Off (ALT +F4)" />
-            <MenuItem accelerator="Shortcut+F" text="Disconnect" />
-         </items>
-      </Menu>
-      <Menu text="Record">
-         <items>
-            <MenuItem accelerator="Shortcut+F" text="Salles Record" />
+            <MenuItem fx:id="menuDisconnect" accelerator="Shortcut+D" onAction="#disconnect" text="Disconnect" />
          </items>
       </Menu>
     </MenuBar>
@@ -53,20 +47,20 @@
                 </VBox>
 
                 <HBox alignment="CENTER" spacing="20">
-                    <Button fx:id="browseBtn" onAction="#browseBooks" text="📚 Browse Books" />
-                    <Button fx:id="manageBookBtn" onAction="#openAddBook" text="Manage books" />
+                    <Button fx:id="browseBtn" onAction="#browseBooks" text="💳 Manage Sales" />
+                    <Button fx:id="manageBookBtn" onAction="#openManageBooks" text="Manage books" />
                 </HBox>
 
                 <VBox alignment="CENTER" spacing="10">
                     <Label fx:id="quickAccessLabel" text="Quick Access" />
                     <HBox alignment="CENTER" spacing="30">
                         <VBox alignment="CENTER" spacing="5">
-                            <Label fx:id="shortcutAddBook" text="Ctrl+N" />
-                            <Label fx:id="shortcutAddBookDesc" text="Add Book" />
+                            <Label fx:id="shortcutAddBook" text="Ctrl+S" />
+                            <Label fx:id="shortcutAddBookDesc" text="Manage Sales" />
                         </VBox>
                         <VBox alignment="CENTER" spacing="5">
                             <Label fx:id="shortcutBrowse" text="Ctrl+B" />
-                            <Label fx:id="shortcutBrowseDesc" text="Browse" />
+                            <Label fx:id="shortcutBrowseDesc" text="Manage Books" />
                         </VBox>
                     </HBox>
                 </VBox>

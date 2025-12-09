@@ -1,4 +1,3 @@
-// SaleDAO.java
 package com.example.tpfinal.DAO;
 
 import com.example.tpfinal.DBConnection;

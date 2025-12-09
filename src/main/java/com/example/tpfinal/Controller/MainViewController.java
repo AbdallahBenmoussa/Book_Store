@@ -12,13 +12,14 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.MenuBar;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.util.Objects;
 
 import com.example.tpfinal.Model.User;
 
@@ -81,6 +82,87 @@ public class MainViewController {
     private MenuItem menuBrowse;
 
     @FXML
+    private MenuItem menuManageBooks;
+
+    @FXML
+    public void initialize() {
+        javafx.application.Platform.runLater(() -> {
+            setupKeyboardShortcuts();
+        });
+    }
+
+    private void setupKeyboardShortcuts() {
+        Scene currentScene = mainContainer.getScene();
+        if (currentScene == null) {
+            javafx.application.Platform.runLater(() -> setupKeyboardShortcuts());
+            return;
+        }
+        
+        KeyCombination ctrlS = new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN);
+        currentScene.getAccelerators().put(ctrlS, () -> {
+            try {
+                openManageSalesWindow();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        KeyCombination ctrlB = new KeyCodeCombination(KeyCode.B, KeyCombination.CONTROL_DOWN);
+        currentScene.getAccelerators().put(ctrlB, () -> {
+            try {
+                openManageBooksWindow();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        KeyCombination ctrlD = new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN);
+        currentScene.getAccelerators().put(ctrlD, () -> {
+            try {
+                disconnectToLogin();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+    
+    private void openManageSalesWindow() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/brows-books.fxml"));
+        root = loader.load();
+
+        BrowsBooksController browsBooksController = loader.getController();
+        browsBooksController.setBackNavigation(mainContainer);
+
+        stage = (Stage) mainContainer.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Book Store - Manage Sales");
+        stage.show();
+    }
+    
+    private void openManageBooksWindow() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/manage-books.fxml"));
+        root = loader.load();
+
+        stage = (Stage) mainContainer.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Book Store - Manage Books");
+        stage.show();
+    }
+    
+    private void disconnectToLogin() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/login-view.fxml"));
+        root = loader.load();
+
+        stage = (Stage) mainContainer.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("My Book Store !");
+        stage.show();
+    }
+
+    @FXML
     void browseBooks(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/brows-books.fxml"));
         root = loader.load();
@@ -88,10 +170,15 @@ public class MainViewController {
         BrowsBooksController browsBooksController = loader.getController();
         browsBooksController.setBackNavigation(mainContainer);
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        if (event.getSource() instanceof Node) {
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        } else {
+            stage = (Stage) mainContainer.getScene().getWindow();
+        }
+        
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Book Store - Brows Books");
+        stage.setTitle("Book Store - Manage Sales");
         stage.show();
     }
 
@@ -103,10 +190,49 @@ public class MainViewController {
         AddBookController addBookController = loader.getController();
         addBookController.setBackNavigation(mainContainer);
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        if (event.getSource() instanceof Node) {
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        } else {
+            stage = (Stage) mainContainer.getScene().getWindow();
+        }
+        
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Book Store - Add Book");
+        stage.show();
+    }
+
+    @FXML
+    void openManageBooks(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/manage-books.fxml"));
+        root = loader.load();
+
+        if (event.getSource() instanceof Node) {
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        } else {
+            stage = (Stage) mainContainer.getScene().getWindow();
+        }
+        
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Book Store - Manage Books");
+        stage.show();
+    }
+
+    @FXML
+    void disconnect(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/login-view.fxml"));
+        root = loader.load();
+
+        if (event.getSource() instanceof Node) {
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        } else {
+            stage = (Stage) mainContainer.getScene().getWindow();
+        }
+        
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("My Book Store !");
         stage.show();
     }
 
