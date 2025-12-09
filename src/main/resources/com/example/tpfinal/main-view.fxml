@@ -20,19 +20,15 @@
         </effect>
 
         <Menu text="Books">
-            <MenuItem fx:id="menuAddBook" accelerator="Shortcut+N" onAction="#openAddBook" text="Add New Book" />
             <MenuItem fx:id="menuBrowse" accelerator="Shortcut+B" onAction="#browseBooks" text="Browse Catalog" />
             <MenuItem accelerator="Shortcut+F" text="Search Books" />
         </Menu>
-
-        <Menu text="Customers">
-            <MenuItem accelerator="Shortcut+C" text="Add Customer" />
-            <MenuItem accelerator="Shortcut+L" text="View Customers" />
-        </Menu>
-
-        <Menu text="Orders">
-            <MenuItem accelerator="Shortcut+H" text="Order History" />
-        </Menu>
+      <Menu text="Action">
+         <items>
+            <MenuItem accelerator="Shortcut+F" text="Log Off (ALT +F4)" />
+            <MenuItem accelerator="Shortcut+F" text="Disconnect" />
+         </items>
+      </Menu>
     </MenuBar>
 
     <!-- ===== WELCOME SECTION ===== -->

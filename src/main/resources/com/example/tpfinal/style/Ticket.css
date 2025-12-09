@@ -1,0 +1,45 @@
+.root {
+    -fx-background-color: #f5f5f5;
+}
+
+.label:first-child {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2ecc71;
+}
+
+.v-box > .v-box {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-padding: 20px;
+}
+
+.label[style*="-fx-font-weight: bold"] {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+#bookTitleLabel,
+#UnitPriceLable,
+#QuantityLable {
+    -fx-text-fill: #555;
+}
+
+#TotalPriceLable {
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 30px;
+    -fx-background-radius: 4px;
+}
+
+.button:hover {
+    -fx-background-color: #2980b9;
+}
