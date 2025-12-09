@@ -20,8 +20,8 @@
         </effect>
 
         <Menu text="Books">
-            <MenuItem accelerator="Shortcut+N" text="Add New Book" />
-            <MenuItem accelerator="Shortcut+B" text="Browse Catalog" />
+            <MenuItem fx:id="menuAddBook" accelerator="Shortcut+N" onAction="#openAddBook" text="Add New Book" />
+            <MenuItem fx:id="menuBrowse" accelerator="Shortcut+B" onAction="#browseBooks" text="Browse Catalog" />
             <MenuItem accelerator="Shortcut+F" text="Search Books" />
         </Menu>
 
@@ -47,13 +47,13 @@
                 </ImageView>
 
                 <VBox alignment="CENTER" minWidth="650.0" spacing="10">
-                    <Label fx:id="welcomeLabel" text="Welcome back, Abdallah!" />
+                    <Label fx:id="welcomeLabel" text="Welcome back!" />
                     <Label fx:id="subtitleLabel" text="Ready to explore today's literary treasures?" />
                 </VBox>
 
                 <HBox alignment="CENTER" spacing="20">
                     <Button fx:id="browseBtn" onAction="#browseBooks" text="📚 Browse Books" />
-                    <Button fx:id="manageBookBtn" text="Manage books" />
+                    <Button fx:id="manageBookBtn" onAction="#openAddBook" text="Manage books" />
                 </HBox>
 
                 <VBox alignment="CENTER" spacing="10">

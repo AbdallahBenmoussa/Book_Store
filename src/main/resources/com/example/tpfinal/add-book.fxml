@@ -11,6 +11,7 @@
 
 <Pane fx:id="main_Panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="500.0" style="-fx-background-color: white;" stylesheets="@style/AddBook.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tpfinal.Controller.AddBookController">
     <children>
+        <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" prefHeight="31.0" prefWidth="60.0" text="← Back" />
         <CubicCurve controlX1="-374.8194885253906" controlX2="-278.4974365234375" controlY1="-262.5640869140625" controlY2="-16.67034912109375" endX="209.30133056640625" endY="-169.0" fill="#5c3ccf" layoutX="116.0" layoutY="778.0" startX="-128.86050415039062" startY="-284.8603515625" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
         <CubicCurve controlX1="177.26129150390625" controlX2="-19.782222747802734" controlY1="300.6261901855469" controlY2="14.639622688293457" endX="327.3266296386719" endY="99.58792877197266" fill="#5c3ccf" layoutX="189.0" layoutY="18.0" startX="-213.37571716308594" startY="-7.7634172439575195" stroke="#1f75ff" style="-fx-rotate: -25;" />
         <CubicCurve controlX1="16.77984619140625" controlX2="-142.38763427734375" controlY1="-84.48736572265625" controlY2="-274.20709228515625" endX="137.18051147460938" endY="-1.0" fill="#5c3ccf" layoutX="517.0" layoutY="650.0" startX="-294.3875732421875" startY="-84.48736572265625" stroke="#1f75ff" />
@@ -24,12 +25,12 @@
             <font>
                 <Font name="Calibri" size="19.0" />
             </font></Label>
-        <TextField layoutX="77.0" layoutY="241.0" prefHeight="27.0" prefWidth="142.0" style="-fx-border-color: black;" />
+        <TextField fx:id="title_field" layoutX="77.0" layoutY="241.0" prefHeight="27.0" prefWidth="142.0" style="-fx-border-color: black;" />
         <Label alignment="CENTER" layoutX="23.0" layoutY="299.0" prefHeight="17.0" prefWidth="78.0" text="Titre :" textFill="#4b4b4b">
             <font>
                 <Font name="Calibri" size="19.0" />
             </font></Label>
-        <TextField layoutX="77.0" layoutY="335.0" prefHeight="27.0" prefWidth="142.0" style="-fx-border-color: black;" />
+        <TextField fx:id="author_field" layoutX="77.0" layoutY="335.0" prefHeight="27.0" prefWidth="142.0" style="-fx-border-color: black;" />
         <Label alignment="CENTER" layoutX="273.0" layoutY="299.0" prefHeight="17.0" prefWidth="78.0" text="Quantity :" textFill="#4b4b4b">
             <font>
                 <Font name="Calibri" size="19.0" />
@@ -39,8 +40,8 @@
                 <Font name="Calibri" size="18.0" />
             </font></Label>
         <Button fx:id="Ajt_Livre_Btn" layoutX="180.0" layoutY="432.0" mnemonicParsing="false" onAction="#handleConfirmerButton" prefHeight="43.0" prefWidth="132.0" text="Confirmer" textFill="#b13ccf" />
-        <TextField layoutX="280.0" layoutY="241.0" prefHeight="27.0" prefWidth="142.0" style="-fx-border-color: black;" />
-        <TextField layoutX="280.0" layoutY="335.0" prefHeight="27.0" prefWidth="142.0" style="-fx-border-color: black;" />
+        <TextField fx:id="price_field" layoutX="280.0" layoutY="241.0" prefHeight="27.0" prefWidth="142.0" style="-fx-border-color: black;" />
+        <TextField fx:id="quantity_field" layoutX="280.0" layoutY="335.0" prefHeight="27.0" prefWidth="142.0" style="-fx-border-color: black;" />
         <Button fx:id="fermer_button" layoutX="471.0" layoutY="-1.0" mnemonicParsing="false" onAction="#fermer_button_onAction" prefHeight="31.0" prefWidth="31.0" text="🗙" textFill="#9a1818">
             <font>
                 <Font name="Arial" size="13.0" />

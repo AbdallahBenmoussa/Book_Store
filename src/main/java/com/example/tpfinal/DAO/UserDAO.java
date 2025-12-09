@@ -14,19 +14,26 @@ public class UserDAO {
     public User authenticate(String username, String password) {
         String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnection()) {
 
-            pstmt.setString(1, username);
-            pstmt.setString(2, password);
+            if (conn == null) {
+                System.err.println("No database connection available.");
+                return null;
+            }
 
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return new User(
-                        rs.getString("username"),
-                        rs.getString("password"),
-                        rs.getLong("id")
-                );
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+                pstmt.setString(1, username);
+                pstmt.setString(2, password);
+
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    return new User(
+                            rs.getString("username"),
+                            rs.getString("password"),
+                            rs.getLong("id")
+                    );
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -10,16 +10,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
+import com.example.tpfinal.DAO.UserDAO;
+import com.example.tpfinal.Model.User;
 
 public class LoginController {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private final UserDAO userDAO = new UserDAO();
 
     @FXML
     private Button exit_btn;
@@ -41,10 +46,25 @@ public class LoginController {
 
     @FXML
     void login(ActionEvent event) throws IOException {
+        String username = userName_field.getText();
+        String password = password_filed.getText();
+
+        if (username == null || username.isBlank() || password == null || password.isBlank()) {
+            showError("Missing credentials", "Please enter both username and password.");
+            return;
+        }
+
+        User user = userDAO.authenticate(username, password);
+        if (user == null) {
+            showError("Invalid credentials", "Username or password is incorrect.");
+            return;
+        }
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/main-view.fxml"));
         root = loader.load();
 
-        MainViewController MainViewController = loader.getController();
+        MainViewController mainViewController = loader.getController();
+        mainViewController.setConnectedUser(user);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -56,6 +76,14 @@ public class LoginController {
     @FXML
     void  exitApp(ActionEvent event){
         System.exit(0);
+    }
+
+    private void showError(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }

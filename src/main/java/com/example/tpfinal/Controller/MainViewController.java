@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.MenuBar;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
@@ -17,12 +18,16 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Objects;
+
+import com.example.tpfinal.Model.User;
 
 public class MainViewController {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private User connectedUser;
 
     @FXML
     private Button manageBookBtn;
@@ -70,16 +75,38 @@ public class MainViewController {
     private Label welcomeLabel;
 
     @FXML
+    private MenuItem menuAddBook;
+
+    @FXML
+    private MenuItem menuBrowse;
+
+    @FXML
     void browseBooks(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/brows-books.fxml"));
         root = loader.load();
 
-        BrowsBooksController BrowsBooksController = loader.getController();
+        BrowsBooksController browsBooksController = loader.getController();
+        browsBooksController.setBackNavigation(mainContainer);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Book Store - Brows Books");
+        stage.show();
+    }
+
+    @FXML
+    void openAddBook(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tpfinal/add-book.fxml"));
+        root = loader.load();
+
+        AddBookController addBookController = loader.getController();
+        addBookController.setBackNavigation(mainContainer);
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Book Store - Add Book");
         stage.show();
     }
 
@@ -107,6 +134,13 @@ public class MainViewController {
         } catch (IOException ex) {
             System.err.println("Failed to load FXML: " + ex.getMessage());
             ex.printStackTrace();
+        }
+    }
+
+    public void setConnectedUser(User user) {
+        this.connectedUser = user;
+        if (welcomeLabel != null && user != null && user.getUsername() != null) {
+            welcomeLabel.setText("Welcome back, " + user.getUsername() + "!");
         }
     }
 
