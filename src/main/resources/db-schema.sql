@@ -1,4 +1,4 @@
--- Schema for My Book Store
+
 CREATE DATABASE IF NOT EXISTS BookStore;
 USE BookStore;
 
@@ -25,16 +25,15 @@ CREATE TABLE IF NOT EXISTS sales (
     CONSTRAINT fk_sales_book FOREIGN KEY (book_id) REFERENCES books(id)
 );
 
--- Seed demo user
-INSERT INTO users (username, password)
-VALUES ('admin', 'admin123') AS new_user
+INSERT INTO users (username, password)VALUES
+ ('admin', 'admin123'),
+ ('e', 'e') AS new_user
+
 ON DUPLICATE KEY UPDATE username = new_user.username;
 
--- Seed sample books
 INSERT INTO books (title, author, price, quantity) VALUES
-('The Pragmatic Programmer', 'Andrew Hunt', 4500, 5),
-('Clean Code', 'Robert C. Martin', 5000, 4),
-('Effective Java', 'Joshua Bloch', 6000, 3) AS new_book
+(' The Stranger', 'Albert Camus', 2000, 5),
+('The Attack', 'Yasmina Khadra', 3000, 3) AS new_book
 ON DUPLICATE KEY UPDATE
     title = new_book.title,
     author = new_book.author,
